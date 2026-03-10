@@ -19,7 +19,7 @@ class FruitModel {
       fruit.name.toLowerCase().startsWith(name.toLowerCase()),
     );
     if (fruits) {
-      return FruitModel(fruits);
+      return new FruitModel(fruits);
     } else {
       //lots ideas of how to handle, if in doubt just throw an error
       throw "No fruits found with that name";
@@ -30,7 +30,7 @@ class FruitModel {
     const newFruit = data;
     console.log(newFruit); //for debug
 
-    newFruit["id"] = fruitsArray.length + 1;
+    newFruit["id"] = Math.max(...fruitsArray.map((f) => f.id)) + 1;
     fruitsArray.push(newFruit);
 
     return new FruitModel(newFruit);
@@ -45,27 +45,27 @@ class FruitModel {
     //check that name has been made
 
     const updateFruit = fruitsArray.find(
-      (fruit) =>
-        fruit.name.toLocaleLowerCase() === this.name.toLocaleLowerCase(),
+      (fruit) => fruit.name.toLowerCase() === this.name.toLowerCase(),
     );
-    if(updateFruit) {
-        updateFruit.name = data.name
-        return new FruitModel(updateFruit)
+    if (updateFruit) {
+      updateFruit.name = data.name;
+      return new FruitModel(updateFruit);
     } else {
-        throw "Fruit not found"
+      throw "Fruit not found";
     }
   }
 
-  destory() {
-    const deletedFruit = fruitsArray.find(fruit => 
-      fruit.name.to.toLowerCase() === this.name.toLowerCase())
-    
-      if (deletedFruit) {
-        const index = fruitsArray.indexOf(deletedFruit);
-        fruitsArray.splice(index,1);
-      } else {
-        throw "Quote not found"
-      }
+  destroy() {
+    const deletedFruit = fruitsArray.find(
+      (fruit) => fruit.name.toLowerCase() === this.name.toLowerCase(),
+    );
+
+    if (deletedFruit) {
+      const index = fruitsArray.indexOf(deletedFruit);
+      fruitsArray.splice(index, 1);
+    } else {
+      throw "Quote not found";
+    }
   }
 }
 

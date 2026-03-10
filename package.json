@@ -2,15 +2,23 @@
   "name": "fuit-salad-3-fruit-salad-with-vengeance",
   "version": "1.0.0",
   "description": "",
+  "keywords": [],
+  "homepage": "https://github.com/Obiuno/fruit-salad-4#readme",
+  "bugs": {
+    "url": "https://github.com/Obiuno/fruit-salad-4/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Obiuno/fruit-salad-4.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
     "start": "node index.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
   "dependencies": {
     "cors": "^2.8.6",
     "dotenv": "^17.3.1",
