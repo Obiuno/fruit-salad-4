@@ -39,11 +39,24 @@ const updateFruit = async (req, res) => {
     } catch (err) {
         res.status(404).send({error: err.message})
     }
+
+const destroy = async (req,res) => {
+    const name = req.params.name.toLowerCase();
+
+    try {
+        const fruit = await FruitModel.showFruit(name)
+        const result = await fruit.destroy()
+        res.sendstatus(204)
+    } catch (err) {
+        res.status(404).send({error: err})
+    }
+}
 }
 
 module.exports = {
     showAllFruits,
     showFruit,
     createFruit,
-    updateFruit
+    updateFruit,
+    destroy
 }

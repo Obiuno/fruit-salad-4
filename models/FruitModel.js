@@ -15,11 +15,11 @@ class FruitModel {
   }
 
   static showFruit(name) {
-    const fruits = fruitsArray.filter((fruit) =>
+    const fruits = fruitsArray.find((fruit) =>
       fruit.name.toLowerCase().startsWith(name.toLowerCase()),
     );
-    if (fruits.length > 0) {
-      return fruits.map((f) => new FruitModel(f));
+    if (fruits) {
+      return FruitModel(fruits);
     } else {
       //lots ideas of how to handle, if in doubt just throw an error
       throw "No fruits found with that name";
@@ -54,6 +54,18 @@ class FruitModel {
     } else {
         throw "Fruit not found"
     }
+  }
+
+  destory() {
+    const deletedFruit = fruitsArray.find(fruit => 
+      fruit.name.to.toLowerCase() === this.name.toLowerCase())
+    
+      if (deletedFruit) {
+        const index = fruitsArray.indexOf(deletedFruit);
+        fruitsArray.splice(index,1);
+      } else {
+        throw "Quote not found"
+      }
   }
 }
 
